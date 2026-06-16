@@ -1,4 +1,5 @@
 import json
+import os
 import re
 import zipfile
 from datetime import datetime
@@ -105,6 +106,23 @@ def read_csv_with_fallback(path: Path, **kwargs) -> pd.DataFrame:
     if last_error:
         raise last_error
     return pd.read_csv(path, low_memory=False, **kwargs)
+
+
+def get_processing_row_limit() -> Optional[int]:
+    """Limit cloud processing so small free instances do not run out of memory."""
+    raw_value = os.getenv("PROCESSING_ROW_LIMIT", "").strip()
+    if raw_value:
+        try:
+            parsed_value = int(raw_value)
+            return parsed_value if parsed_value > 0 else None
+        except ValueError:
+            return 50000
+
+    # Local development keeps full processing. Render/Neon deployments default to
+    # a representative sample because the free web instance has limited memory.
+    if os.getenv("DATABASE_URL") and not settings.DEBUG:
+        return 50000
+    return None
 
 
 def get_csv_columns(path: Path) -> List[str]:
@@ -357,7 +375,9 @@ def _late_flag_from_series(series: pd.Series) -> pd.Series:
 def clean_supply_chain_data(main_csv_path: Path) -> Tuple[pd.DataFrame, Dict[str, object]]:
     ensure_project_directories()
     main_csv_path = Path(main_csv_path)
-    raw_df = read_csv_with_fallback(main_csv_path)
+    processing_row_limit = get_processing_row_limit()
+    read_kwargs = {"nrows": processing_row_limit} if processing_row_limit else {}
+    raw_df = read_csv_with_fallback(main_csv_path, **read_kwargs)
     original_row_count = len(raw_df)
 
     df, column_mapping = normalize_dataframe_columns(raw_df)
@@ -366,6 +386,11 @@ def clean_supply_chain_data(main_csv_path: Path) -> Tuple[pd.DataFrame, Dict[str
 
     detected_columns = detect_business_columns(list(df.columns))
     limitations: List[str] = []
+    if processing_row_limit:
+        limitations.append(
+            f"Cloud-safe processing analyzed the first {original_row_count:,} rows to stay within free deployment memory limits. "
+            "Run locally for full-dataset processing."
+        )
 
     order_id_column = detected_columns["order_id"]
     if order_id_column and order_id_column in df.columns:
@@ -475,6 +500,7 @@ def clean_supply_chain_data(main_csv_path: Path) -> Tuple[pd.DataFrame, Dict[str
         },
         "limitations": limitations,
         "processed_at": datetime.utcnow().isoformat() + "Z",
+        "processing_row_limit": processing_row_limit,
     }
 
     with (OUTPUTS_DIR / "pipeline_context.json").open("w", encoding="utf-8") as file:

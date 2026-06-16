@@ -276,6 +276,7 @@ DEBUG=False
 ALLOWED_HOSTS=<your-render-service-name>.onrender.com
 DATABASE_URL=<your Neon PostgreSQL connection string>
 PYTHON_VERSION=3.11.11
+PROCESSING_ROW_LIMIT=50000
 ```
 
 Optional:
@@ -294,13 +295,13 @@ After Render finishes the first build, use the Render shell only if you need to 
 python manage.py seed_demo_user
 ```
 
-If you want cloud demo data, upload the dataset ZIP from the **Data Pipeline** page and process it there. Render free services use an ephemeral filesystem, so uploaded raw files and generated local output files should be treated as demo-only unless you add persistent storage later.
+If you want cloud demo data, upload the dataset ZIP from the **Data Pipeline** page and process it there. The deployed app uses `PROCESSING_ROW_LIMIT=50000` by default for cloud-safe processing on the free Render instance. For full-dataset processing, run the pipeline locally where more memory is available. Render free services use an ephemeral filesystem, so uploaded raw files and generated local output files should be treated as demo-only unless you add persistent storage later.
 
 No Render deployment is started from this README. These steps are for you to run manually when ready.
 
 ### Render Docker Runtime
 
-If you select **Docker** as the Render runtime, leave Render's **Docker Command** field empty. The `Dockerfile` already starts the app with migrations, demo-user seeding, static file collection, and Gunicorn bound to Render's `PORT` variable.
+If you select **Docker** as the Render runtime, leave Render's **Docker Command** field empty. The `Dockerfile` already starts the app with migrations, demo-user seeding, static file collection, and Gunicorn bound to Render's `PORT` variable. It uses one Gunicorn worker for the free instance to keep memory usage stable.
 
 Use these settings:
 
@@ -378,4 +379,3 @@ Researchers can:
 - Export responses as CSV.
 
 This supports lightweight studies on whether operational dashboards or AI summaries improve supply-chain decision-making.
-
