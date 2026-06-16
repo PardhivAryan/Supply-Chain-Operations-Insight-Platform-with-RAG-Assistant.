@@ -1,0 +1,24 @@
+Supply Chain KPI Summary
+
+Total Orders: 65752
+Total Revenue: 36784735.01
+Total Profit: 3966902.97
+Average Profit Margin: 10.83
+Total Quantity: 384079.0
+Average Order Value: 559.45
+Late Delivery Rate: 54.83
+Average Delivery Delay: 0.57
+Best Region By Revenue: Western Europe
+Worst Region By Late Delivery Rate: South Asia
+Top Product By Revenue: Field & Stream Sportsman 16 Gun Fire Safe
+Top Category By Revenue: Fishing
+Top Shipping Mode By Volume: Standard Class
+Number Of Countries: 164
+Number Of Product Categories: 50
+
+Calculation sources:
+- revenue: sales
+- profit: order_profit_per_order
+- actual_shipping_days: days_for_shipping_real
+- scheduled_shipping_days: days_for_shipment_scheduled
+- late_delivery_flag: late_delivery_risk

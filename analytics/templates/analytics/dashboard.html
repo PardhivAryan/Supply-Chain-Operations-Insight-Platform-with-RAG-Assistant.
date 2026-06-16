@@ -1,0 +1,104 @@
+{% extends "analytics/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard | Supply Chain Operations Platform{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h1>Operations Dashboard</h1>
+        <p>Revenue, delivery, product, region, and customer-segment metrics from the cleaned local dataset.</p>
+    </div>
+    <a class="btn btn-outline-primary" href="{% url 'analytics:upload' %}">Data Pipeline</a>
+</div>
+
+{% if not has_outputs %}
+    <section class="empty-state">
+        <h2>No processed dataset yet</h2>
+        <p>Run the local processing command or use the dataset page to generate KPIs, charts, reports, and RAG documents.</p>
+        <a class="btn btn-primary" href="{% url 'analytics:upload' %}">Go to Data Pipeline</a>
+    </section>
+{% else %}
+    <section class="kpi-grid">
+        <article class="kpi-card accent-revenue">
+            <span>Total Revenue</span>
+            <strong>{{ kpis.total_revenue }}</strong>
+        </article>
+        <article class="kpi-card accent-orders">
+            <span>Total Orders</span>
+            <strong>{{ kpis.total_orders }}</strong>
+        </article>
+        <article class="kpi-card accent-risk">
+            <span>Late Delivery Rate</span>
+            <strong>{{ kpis.late_delivery_rate }}</strong>
+        </article>
+        <article class="kpi-card accent-delay">
+            <span>Average Delivery Delay</span>
+            <strong>{{ kpis.average_delivery_delay }}</strong>
+        </article>
+        <article class="kpi-card accent-category">
+            <span>Top Category</span>
+            <strong>{{ kpis.top_category }}</strong>
+        </article>
+        <article class="kpi-card accent-region">
+            <span>Best Region</span>
+            <strong>{{ kpis.best_region }}</strong>
+        </article>
+    </section>
+
+    <section class="dashboard-grid mt-4">
+        <article class="chart-panel chart-panel-wide">
+            <div class="panel-title">
+                <h2>Monthly Revenue Trend</h2>
+                <span>Revenue and order volume</span>
+            </div>
+            <div class="chart-canvas-shell">
+                <canvas id="monthlyRevenueChart"></canvas>
+            </div>
+        </article>
+        <article class="chart-panel">
+            <div class="panel-title">
+                <h2>Revenue by Category</h2>
+                <span>Top product categories</span>
+            </div>
+            <div class="chart-canvas-shell">
+                <canvas id="categoryRevenueChart"></canvas>
+            </div>
+        </article>
+        <article class="chart-panel">
+            <div class="panel-title">
+                <h2>Late Delivery by Region</h2>
+                <span>Rate and delay exposure</span>
+            </div>
+            <div class="chart-canvas-shell">
+                <canvas id="regionLateChart"></canvas>
+            </div>
+        </article>
+        <article class="chart-panel">
+            <div class="panel-title">
+                <h2>Shipping Mode Performance</h2>
+                <span>Volume by mode</span>
+            </div>
+            <div class="chart-canvas-shell">
+                <canvas id="shippingModeChart"></canvas>
+            </div>
+        </article>
+        <article class="chart-panel">
+            <div class="panel-title">
+                <h2>Top 10 Countries</h2>
+                <span>Revenue contribution</span>
+            </div>
+            <div class="chart-canvas-shell">
+                <canvas id="countryRevenueChart"></canvas>
+            </div>
+        </article>
+    </section>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{% if has_outputs %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="{% static 'analytics/js/dashboard_charts.js' %}"></script>
+{% endif %}
+{% endblock %}

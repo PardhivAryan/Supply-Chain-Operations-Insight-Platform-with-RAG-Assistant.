@@ -1,0 +1,911 @@
+{
+  "generated_at": "2026-06-16T07:18:35.010049Z",
+  "kpis": {
+    "total_orders": 65752,
+    "total_revenue": 36784735.01,
+    "total_profit": 3966902.97,
+    "average_profit_margin": 10.83,
+    "total_quantity": 384079.0,
+    "average_order_value": 559.45,
+    "late_delivery_rate": 54.83,
+    "average_delivery_delay": 0.57,
+    "best_region_by_revenue": "Western Europe",
+    "worst_region_by_late_delivery_rate": "South Asia",
+    "top_product_by_revenue": "Field & Stream Sportsman 16 Gun Fire Safe",
+    "top_category_by_revenue": "Fishing",
+    "top_shipping_mode_by_volume": "Standard Class",
+    "number_of_countries": 164,
+    "number_of_product_categories": 50
+  },
+  "summary_datasets": {
+    "monthly_revenue_trend": [
+      {
+        "label": "2015-01",
+        "revenue": 1051590.080197363,
+        "order_volume": 1787
+      },
+      {
+        "label": "2015-02",
+        "revenue": 927009.898168041,
+        "order_volume": 1585
+      },
+      {
+        "label": "2015-03",
+        "revenue": 1051253.690334273,
+        "order_volume": 1781
+      },
+      {
+        "label": "2015-04",
+        "revenue": 1014463.279822583,
+        "order_volume": 1710
+      },
+      {
+        "label": "2015-05",
+        "revenue": 1050478.44015248,
+        "order_volume": 1776
+      },
+      {
+        "label": "2015-06",
+        "revenue": 1024006.169832033,
+        "order_volume": 1725
+      },
+      {
+        "label": "2015-07",
+        "revenue": 1038081.190095872,
+        "order_volume": 1763
+      },
+      {
+        "label": "2015-08",
+        "revenue": 1029494.690638762,
+        "order_volume": 1762
+      },
+      {
+        "label": "2015-09",
+        "revenue": 1018338.599974533,
+        "order_volume": 1706
+      },
+      {
+        "label": "2015-10",
+        "revenue": 1049154.27043329,
+        "order_volume": 1775
+      },
+      {
+        "label": "2015-11",
+        "revenue": 1029120.240618734,
+        "order_volume": 1729
+      },
+      {
+        "label": "2015-12",
+        "revenue": 1057840.880614801,
+        "order_volume": 1805
+      },
+      {
+        "label": "2016-01",
+        "revenue": 1046308.250500212,
+        "order_volume": 1772
+      },
+      {
+        "label": "2016-02",
+        "revenue": 968542.849025412,
+        "order_volume": 1650
+      },
+      {
+        "label": "2016-03",
+        "revenue": 1025853.120817973,
+        "order_volume": 1764
+      },
+      {
+        "label": "2016-04",
+        "revenue": 1001211.579778363,
+        "order_volume": 1706
+      },
+      {
+        "label": "2016-05",
+        "revenue": 1029400.200723323,
+        "order_volume": 1763
+      },
+      {
+        "label": "2016-06",
+        "revenue": 1003059.550005001,
+        "order_volume": 1690
+      },
+      {
+        "label": "2016-07",
+        "revenue": 1045715.620862,
+        "order_volume": 1758
+      },
+      {
+        "label": "2016-08",
+        "revenue": 1048200.251113612,
+        "order_volume": 1766
+      },
+      {
+        "label": "2016-09",
+        "revenue": 1002397.039938014,
+        "order_volume": 1730
+      },
+      {
+        "label": "2016-10",
+        "revenue": 1048130.550406502,
+        "order_volume": 1776
+      },
+      {
+        "label": "2016-11",
+        "revenue": 1047590.141074611,
+        "order_volume": 1721
+      },
+      {
+        "label": "2016-12",
+        "revenue": 1037408.170125002,
+        "order_volume": 1763
+      },
+      {
+        "label": "2017-01",
+        "revenue": 1029698.020147722,
+        "order_volume": 1745
+      },
+      {
+        "label": "2017-02",
+        "revenue": 992534.898790352,
+        "order_volume": 1614
+      },
+      {
+        "label": "2017-03",
+        "revenue": 1048004.781065341,
+        "order_volume": 1782
+      },
+      {
+        "label": "2017-04",
+        "revenue": 1038321.620870051,
+        "order_volume": 1739
+      },
+      {
+        "label": "2017-05",
+        "revenue": 1105485.32189609,
+        "order_volume": 1763
+      },
+      {
+        "label": "2017-06",
+        "revenue": 1032086.4903108199,
+        "order_volume": 1676
+      },
+      {
+        "label": "2017-07",
+        "revenue": 1104373.36097925,
+        "order_volume": 1776
+      },
+      {
+        "label": "2017-08",
+        "revenue": 1109337.17125681,
+        "order_volume": 1768
+      },
+      {
+        "label": "2017-09",
+        "revenue": 1143775.10762319,
+        "order_volume": 1723
+      },
+      {
+        "label": "2017-10",
+        "revenue": 1073994.1690205599,
+        "order_volume": 2101
+      },
+      {
+        "label": "2017-11",
+        "revenue": 626914.38366701,
+        "order_volume": 2055
+      },
+      {
+        "label": "2017-12",
+        "revenue": 503910.81734302,
+        "order_volume": 2124
+      },
+      {
+        "label": "2018-01",
+        "revenue": 331650.11515684,
+        "order_volume": 2123
+      }
+    ],
+    "monthly_order_volume": [
+      {
+        "label": "2015-01",
+        "revenue": 1051590.080197363,
+        "order_volume": 1787
+      },
+      {
+        "label": "2015-02",
+        "revenue": 927009.898168041,
+        "order_volume": 1585
+      },
+      {
+        "label": "2015-03",
+        "revenue": 1051253.690334273,
+        "order_volume": 1781
+      },
+      {
+        "label": "2015-04",
+        "revenue": 1014463.279822583,
+        "order_volume": 1710
+      },
+      {
+        "label": "2015-05",
+        "revenue": 1050478.44015248,
+        "order_volume": 1776
+      },
+      {
+        "label": "2015-06",
+        "revenue": 1024006.169832033,
+        "order_volume": 1725
+      },
+      {
+        "label": "2015-07",
+        "revenue": 1038081.190095872,
+        "order_volume": 1763
+      },
+      {
+        "label": "2015-08",
+        "revenue": 1029494.690638762,
+        "order_volume": 1762
+      },
+      {
+        "label": "2015-09",
+        "revenue": 1018338.599974533,
+        "order_volume": 1706
+      },
+      {
+        "label": "2015-10",
+        "revenue": 1049154.27043329,
+        "order_volume": 1775
+      },
+      {
+        "label": "2015-11",
+        "revenue": 1029120.240618734,
+        "order_volume": 1729
+      },
+      {
+        "label": "2015-12",
+        "revenue": 1057840.880614801,
+        "order_volume": 1805
+      },
+      {
+        "label": "2016-01",
+        "revenue": 1046308.250500212,
+        "order_volume": 1772
+      },
+      {
+        "label": "2016-02",
+        "revenue": 968542.849025412,
+        "order_volume": 1650
+      },
+      {
+        "label": "2016-03",
+        "revenue": 1025853.120817973,
+        "order_volume": 1764
+      },
+      {
+        "label": "2016-04",
+        "revenue": 1001211.579778363,
+        "order_volume": 1706
+      },
+      {
+        "label": "2016-05",
+        "revenue": 1029400.200723323,
+        "order_volume": 1763
+      },
+      {
+        "label": "2016-06",
+        "revenue": 1003059.550005001,
+        "order_volume": 1690
+      },
+      {
+        "label": "2016-07",
+        "revenue": 1045715.620862,
+        "order_volume": 1758
+      },
+      {
+        "label": "2016-08",
+        "revenue": 1048200.251113612,
+        "order_volume": 1766
+      },
+      {
+        "label": "2016-09",
+        "revenue": 1002397.039938014,
+        "order_volume": 1730
+      },
+      {
+        "label": "2016-10",
+        "revenue": 1048130.550406502,
+        "order_volume": 1776
+      },
+      {
+        "label": "2016-11",
+        "revenue": 1047590.141074611,
+        "order_volume": 1721
+      },
+      {
+        "label": "2016-12",
+        "revenue": 1037408.170125002,
+        "order_volume": 1763
+      },
+      {
+        "label": "2017-01",
+        "revenue": 1029698.020147722,
+        "order_volume": 1745
+      },
+      {
+        "label": "2017-02",
+        "revenue": 992534.898790352,
+        "order_volume": 1614
+      },
+      {
+        "label": "2017-03",
+        "revenue": 1048004.781065341,
+        "order_volume": 1782
+      },
+      {
+        "label": "2017-04",
+        "revenue": 1038321.620870051,
+        "order_volume": 1739
+      },
+      {
+        "label": "2017-05",
+        "revenue": 1105485.32189609,
+        "order_volume": 1763
+      },
+      {
+        "label": "2017-06",
+        "revenue": 1032086.4903108199,
+        "order_volume": 1676
+      },
+      {
+        "label": "2017-07",
+        "revenue": 1104373.36097925,
+        "order_volume": 1776
+      },
+      {
+        "label": "2017-08",
+        "revenue": 1109337.17125681,
+        "order_volume": 1768
+      },
+      {
+        "label": "2017-09",
+        "revenue": 1143775.10762319,
+        "order_volume": 1723
+      },
+      {
+        "label": "2017-10",
+        "revenue": 1073994.1690205599,
+        "order_volume": 2101
+      },
+      {
+        "label": "2017-11",
+        "revenue": 626914.38366701,
+        "order_volume": 2055
+      },
+      {
+        "label": "2017-12",
+        "revenue": 503910.81734302,
+        "order_volume": 2124
+      },
+      {
+        "label": "2018-01",
+        "revenue": 331650.11515684,
+        "order_volume": 2123
+      }
+    ],
+    "revenue_by_product_category": [
+      {
+        "label": "Fishing",
+        "revenue": 6929653.690575,
+        "profit": 756220.767189502,
+        "order_volume": 15164
+      },
+      {
+        "label": "Cleats",
+        "revenue": 4431942.78318506,
+        "profit": 494636.919790561,
+        "order_volume": 20386
+      },
+      {
+        "label": "Camping & Hiking",
+        "revenue": 4118425.571019,
+        "profit": 427455.568105731,
+        "order_volume": 12299
+      },
+      {
+        "label": "Cardio Equipment",
+        "revenue": 3694843.19662996,
+        "profit": 383011.098484708,
+        "order_volume": 11355
+      },
+      {
+        "label": "Women's Apparel",
+        "revenue": 3147800.0,
+        "profit": 350421.02956735,
+        "order_volume": 17869
+      },
+      {
+        "label": "Water Sports",
+        "revenue": 3113844.684858,
+        "profit": 325146.96003752,
+        "order_volume": 13758
+      },
+      {
+        "label": "Men's Footwear",
+        "revenue": 2891757.6623529997,
+        "profit": 311902.820213578,
+        "order_volume": 18783
+      },
+      {
+        "label": "Indoor/Outdoor Games",
+        "revenue": 2888993.9135055,
+        "profit": 318451.430554194,
+        "order_volume": 16623
+      },
+      {
+        "label": "Shop By Sport",
+        "revenue": 1309522.04145468,
+        "profit": 129813.960314822,
+        "order_volume": 10136
+      },
+      {
+        "label": "Computers",
+        "revenue": 663000.0,
+        "profit": 69656.81017112,
+        "order_volume": 442
+      },
+      {
+        "label": "Electronics",
+        "revenue": 371034.64318789,
+        "profit": 40891.379917647,
+        "order_volume": 3061
+      },
+      {
+        "label": "Cameras",
+        "revenue": 267607.685032,
+        "profit": 30289.799945645,
+        "order_volume": 592
+      }
+    ],
+    "profit_by_product_category": [
+      {
+        "label": "Fishing",
+        "profit": 756220.767189502,
+        "revenue": 6929653.690575
+      },
+      {
+        "label": "Cleats",
+        "profit": 494636.919790561,
+        "revenue": 4431942.78318506
+      },
+      {
+        "label": "Camping & Hiking",
+        "profit": 427455.568105731,
+        "revenue": 4118425.571019
+      },
+      {
+        "label": "Cardio Equipment",
+        "profit": 383011.098484708,
+        "revenue": 3694843.19662996
+      },
+      {
+        "label": "Women's Apparel",
+        "profit": 350421.02956735,
+        "revenue": 3147800.0
+      },
+      {
+        "label": "Water Sports",
+        "profit": 325146.96003752,
+        "revenue": 3113844.684858
+      },
+      {
+        "label": "Indoor/Outdoor Games",
+        "profit": 318451.430554194,
+        "revenue": 2888993.9135055
+      },
+      {
+        "label": "Men's Footwear",
+        "profit": 311902.820213578,
+        "revenue": 2891757.6623529997
+      },
+      {
+        "label": "Shop By Sport",
+        "profit": 129813.960314822,
+        "revenue": 1309522.04145468
+      },
+      {
+        "label": "Computers",
+        "profit": 69656.81017112,
+        "revenue": 663000.0
+      },
+      {
+        "label": "Electronics",
+        "profit": 40891.379917647,
+        "revenue": 371034.64318789
+      },
+      {
+        "label": "Garden",
+        "profit": 33443.010106141,
+        "revenue": 257768.7282764
+      }
+    ],
+    "late_delivery_rate_by_region": [
+      {
+        "label": "Central Africa",
+        "late_delivery_rate": 57.9606440072,
+        "order_volume": 556,
+        "average_delay": 0.6398330352
+      },
+      {
+        "label": "South Asia",
+        "late_delivery_rate": 56.2669771052,
+        "order_volume": 3335,
+        "average_delay": 0.5974647523
+      },
+      {
+        "label": "East Africa",
+        "late_delivery_rate": 55.939524838,
+        "order_volume": 613,
+        "average_delay": 0.5707343413
+      },
+      {
+        "label": "Western Europe",
+        "late_delivery_rate": 55.8486111623,
+        "order_volume": 10010,
+        "average_delay": 0.5974030765
+      },
+      {
+        "label": "South of  USA",
+        "late_delivery_rate": 55.7725587145,
+        "order_volume": 1345,
+        "average_delay": 0.5799752781
+      },
+      {
+        "label": "Eastern Europe",
+        "late_delivery_rate": 55.6632653061,
+        "order_volume": 1292,
+        "average_delay": 0.5798469388
+      },
+      {
+        "label": "East of USA",
+        "late_delivery_rate": 55.6616052061,
+        "order_volume": 2323,
+        "average_delay": 0.5848156182
+      },
+      {
+        "label": "Southeast Asia",
+        "late_delivery_rate": 55.529929762,
+        "order_volume": 4356,
+        "average_delay": 0.5582346158
+      },
+      {
+        "label": "Central Asia",
+        "late_delivery_rate": 55.3345388788,
+        "order_volume": 184,
+        "average_delay": 0.6455696203
+      },
+      {
+        "label": "West Asia",
+        "late_delivery_rate": 55.2837410551,
+        "order_volume": 2022,
+        "average_delay": 0.5694791147
+      },
+      {
+        "label": "US Center",
+        "late_delivery_rate": 55.2403601155,
+        "order_volume": 1935,
+        "average_delay": 0.5872260914
+      },
+      {
+        "label": "Central America",
+        "late_delivery_rate": 54.7545958152,
+        "order_volume": 9396,
+        "average_delay": 0.5619420627
+      }
+    ],
+    "revenue_by_region": [
+      {
+        "label": "Western Europe",
+        "revenue": 5894380.765107667,
+        "order_volume": 10010
+      },
+      {
+        "label": "Central America",
+        "revenue": 5665712.101056057,
+        "order_volume": 9396
+      },
+      {
+        "label": "South America",
+        "revenue": 2960881.407628394,
+        "order_volume": 4979
+      },
+      {
+        "label": "Northern Europe",
+        "revenue": 2155830.648588132,
+        "order_volume": 3716
+      },
+      {
+        "label": "Southern Europe",
+        "revenue": 2047918.816884261,
+        "order_volume": 3543
+      },
+      {
+        "label": "Oceania",
+        "revenue": 2016654.199561614,
+        "order_volume": 4362
+      },
+      {
+        "label": "Southeast Asia",
+        "revenue": 1932495.566839391,
+        "order_volume": 4356
+      },
+      {
+        "label": "Caribbean",
+        "revenue": 1651019.332257893,
+        "order_volume": 2806
+      },
+      {
+        "label": "West of USA",
+        "revenue": 1571415.961382784,
+        "order_volume": 2667
+      },
+      {
+        "label": "South Asia",
+        "revenue": 1553680.920196465,
+        "order_volume": 3335
+      },
+      {
+        "label": "Eastern Asia",
+        "revenue": 1486401.338173953,
+        "order_volume": 3318
+      },
+      {
+        "label": "East of USA",
+        "revenue": 1371111.987017012,
+        "order_volume": 2323
+      }
+    ],
+    "revenue_by_country": [
+      {
+        "label": "Estados Unidos",
+        "revenue": 4879667.667388519,
+        "order_volume": 8270
+      },
+      {
+        "label": "Francia",
+        "revenue": 2879942.361288111,
+        "order_volume": 4866
+      },
+      {
+        "label": "M\u00e9xico",
+        "revenue": 2633195.292080005,
+        "order_volume": 4395
+      },
+      {
+        "label": "Alemania",
+        "revenue": 2074171.817105304,
+        "order_volume": 3518
+      },
+      {
+        "label": "Australia",
+        "revenue": 1694621.673080093,
+        "order_volume": 3798
+      },
+      {
+        "label": "Reino Unido",
+        "revenue": 1612094.84828754,
+        "order_volume": 2785
+      },
+      {
+        "label": "Brasil",
+        "revenue": 1594319.951363941,
+        "order_volume": 2650
+      },
+      {
+        "label": "China",
+        "revenue": 1172902.112133653,
+        "order_volume": 2616
+      },
+      {
+        "label": "Italia",
+        "revenue": 1072181.669068851,
+        "order_volume": 1880
+      },
+      {
+        "label": "India",
+        "revenue": 962396.698442322,
+        "order_volume": 2152
+      }
+    ],
+    "shipping_mode_performance": [
+      {
+        "label": "Standard Class",
+        "order_volume": 39324,
+        "revenue": 22022391.879809294,
+        "late_delivery_rate": 38.0716831242,
+        "average_delay": -0.0040927315
+      },
+      {
+        "label": "Second Class",
+        "order_volume": 12778,
+        "revenue": 7145444.818358915,
+        "late_delivery_rate": 76.6327805543,
+        "average_delay": 1.9908280327
+      },
+      {
+        "label": "First Class",
+        "order_volume": 10079,
+        "revenue": 5674369.758202553,
+        "late_delivery_rate": 95.3224994607,
+        "average_delay": 1.0
+      },
+      {
+        "label": "Same Day",
+        "order_volume": 3571,
+        "revenue": 1942528.557009085,
+        "late_delivery_rate": 45.7430420047,
+        "average_delay": 0.4782787306
+      }
+    ],
+    "order_status_distribution": [
+      {
+        "label": "COMPLETE",
+        "order_volume": 21716,
+        "revenue": 12095314.950843364
+      },
+      {
+        "label": "PENDING_PAYMENT",
+        "order_volume": 14382,
+        "revenue": 8106697.5552908
+      },
+      {
+        "label": "PROCESSING",
+        "order_volume": 7901,
+        "revenue": 4504063.746151682
+      },
+      {
+        "label": "PENDING",
+        "order_volume": 7321,
+        "revenue": 4120532.869502395
+      },
+      {
+        "label": "CLOSED",
+        "order_volume": 7249,
+        "revenue": 4022624.166706608
+      },
+      {
+        "label": "ON_HOLD",
+        "order_volume": 3624,
+        "revenue": 1981542.708006305
+      },
+      {
+        "label": "SUSPECTED_FRAUD",
+        "order_volume": 1488,
+        "revenue": 825934.95578134
+      },
+      {
+        "label": "CANCELED",
+        "order_volume": 1367,
+        "revenue": 744370.40412021
+      },
+      {
+        "label": "PAYMENT_REVIEW",
+        "order_volume": 704,
+        "revenue": 383653.656977141
+      }
+    ],
+    "customer_segment_performance": [
+      {
+        "label": "Consumer",
+        "order_volume": 34119,
+        "revenue": 19095790.15517331,
+        "profit": 2073487.671913526,
+        "late_delivery_rate": 54.8083504449
+      },
+      {
+        "label": "Corporate",
+        "order_volume": 19856,
+        "revenue": 11168406.84299083,
+        "profit": 1202574.961506601,
+        "late_delivery_rate": 54.7226633083
+      },
+      {
+        "label": "Home Office",
+        "order_volume": 11777,
+        "revenue": 6520538.015215706,
+        "profit": 690840.34063023,
+        "late_delivery_rate": 55.0704400174
+      }
+    ]
+  },
+  "data_context": {
+    "source_file": "/Users/pardhivaryanvempati/Documents/Projects/Supply Chain Operations Insight Platform with RAG Assistant./extracted_data/DataCoSupplyChainDataset.csv",
+    "cleaned_data_path": "/Users/pardhivaryanvempati/Documents/Projects/Supply Chain Operations Insight Platform with RAG Assistant./outputs/cleaned_supply_chain_data.csv",
+    "original_row_count": 180519,
+    "cleaned_row_count": 180519,
+    "duplicates_removed": 0,
+    "invalid_order_rows_removed": 0,
+    "column_mapping": {
+      "Type": "type",
+      "Days for shipping (real)": "days_for_shipping_real",
+      "Days for shipment (scheduled)": "days_for_shipment_scheduled",
+      "Benefit per order": "benefit_per_order",
+      "Sales per customer": "sales_per_customer",
+      "Delivery Status": "delivery_status",
+      "Late_delivery_risk": "late_delivery_risk",
+      "Category Id": "category_id",
+      "Category Name": "category_name",
+      "Customer City": "customer_city",
+      "Customer Country": "customer_country",
+      "Customer Email": "customer_email",
+      "Customer Fname": "customer_fname",
+      "Customer Id": "customer_id",
+      "Customer Lname": "customer_lname",
+      "Customer Password": "customer_password",
+      "Customer Segment": "customer_segment",
+      "Customer State": "customer_state",
+      "Customer Street": "customer_street",
+      "Customer Zipcode": "customer_zipcode",
+      "Department Id": "department_id",
+      "Department Name": "department_name",
+      "Latitude": "latitude",
+      "Longitude": "longitude",
+      "Market": "market",
+      "Order City": "order_city",
+      "Order Country": "order_country",
+      "Order Customer Id": "order_customer_id",
+      "order date (DateOrders)": "order_date_dateorders",
+      "Order Id": "order_id",
+      "Order Item Cardprod Id": "order_item_cardprod_id",
+      "Order Item Discount": "order_item_discount",
+      "Order Item Discount Rate": "order_item_discount_rate",
+      "Order Item Id": "order_item_id",
+      "Order Item Product Price": "order_item_product_price",
+      "Order Item Profit Ratio": "order_item_profit_ratio",
+      "Order Item Quantity": "order_item_quantity",
+      "Sales": "sales",
+      "Order Item Total": "order_item_total",
+      "Order Profit Per Order": "order_profit_per_order",
+      "Order Region": "order_region",
+      "Order State": "order_state",
+      "Order Status": "order_status",
+      "Order Zipcode": "order_zipcode",
+      "Product Card Id": "product_card_id",
+      "Product Category Id": "product_category_id",
+      "Product Description": "product_description",
+      "Product Image": "product_image",
+      "Product Name": "product_name",
+      "Product Price": "product_price",
+      "Product Status": "product_status",
+      "shipping date (DateOrders)": "shipping_date_dateorders",
+      "Shipping Mode": "shipping_mode"
+    },
+    "detected_columns": {
+      "order_id": "order_id",
+      "order_date": "order_date_dateorders",
+      "shipping_date": "shipping_date_dateorders",
+      "actual_shipping_days": "days_for_shipping_real",
+      "scheduled_shipping_days": "days_for_shipment_scheduled",
+      "late_delivery_risk": "late_delivery_risk",
+      "revenue": "sales",
+      "profit": "order_profit_per_order",
+      "quantity": "order_item_quantity",
+      "product_price": "order_item_product_price",
+      "shipping_mode": "shipping_mode",
+      "product_category": "category_name",
+      "product_name": "product_name",
+      "order_region": "order_region",
+      "order_country": "order_country",
+      "customer_segment": "customer_segment",
+      "order_status": "order_status"
+    },
+    "calculation_sources": {
+      "revenue": "sales",
+      "profit": "order_profit_per_order",
+      "actual_shipping_days": "days_for_shipping_real",
+      "scheduled_shipping_days": "days_for_shipment_scheduled",
+      "late_delivery_flag": "late_delivery_risk"
+    },
+    "limitations": [],
+    "processed_at": "2026-06-16T07:18:34.587905Z"
+  }
+}

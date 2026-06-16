@@ -1,0 +1,10 @@
+Django
+pandas
+numpy
+scikit-learn
+openpyxl
+python-dotenv
+gunicorn
+whitenoise
+dj-database-url
+psycopg2-binary

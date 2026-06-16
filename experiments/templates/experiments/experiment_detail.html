@@ -1,0 +1,119 @@
+{% extends "analytics/base.html" %}
+
+{% block title %}Experiment Detail | Supply Chain Operations Platform{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h1>{{ experiment.title }}</h1>
+        <p>{{ experiment.research_question }}</p>
+    </div>
+    <a class="btn btn-outline-primary" href="{% url 'experiments:export_responses_csv' experiment.pk %}">Export CSV</a>
+</div>
+
+<div class="two-column-layout">
+    <section class="content-panel">
+        <h2>Study Conditions</h2>
+        <div class="condition-block">
+            <h3>Control</h3>
+            <p>{{ experiment.control_condition }}</p>
+        </div>
+        <div class="condition-block">
+            <h3>Treatment</h3>
+            <p>{{ experiment.treatment_condition }}</p>
+        </div>
+        <span class="status-pill">{{ experiment.status }}</span>
+    </section>
+
+    <section class="content-panel">
+        <h2>Response Summary</h2>
+        {% if summary %}
+            <div class="summary-list">
+                {% for item in summary %}
+                    <div>
+                        <strong>{{ item.assigned_condition }}</strong>
+                        <span>{{ item.response_count }} responses</span>
+                        <span>{{ item.average_confidence|floatformat:2 }} avg confidence</span>
+                        <span>{{ item.average_response_time|floatformat:2 }} sec avg time</span>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-muted">No responses recorded yet.</p>
+        {% endif %}
+    </section>
+</div>
+
+<section class="content-panel mt-4">
+    <h2>Add Participant Response</h2>
+    <div class="experiment-guide-grid">
+        <div>
+            <strong>What this records</strong>
+            <p>One row for each participant who tested the experiment.</p>
+        </div>
+        <div>
+            <strong>CONTROL</strong>
+            <p>Use when the participant reviewed only raw order records.</p>
+        </div>
+        <div>
+            <strong>TREATMENT</strong>
+            <p>Use when the participant reviewed dashboards, reports, or the assistant.</p>
+        </div>
+    </div>
+    <form method="post" class="response-form">
+        {% csrf_token %}
+        {% for field in response_form %}
+            <div>
+                <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <div class="form-text">{{ field.help_text }}</div>
+                {% endif %}
+                {% for error in field.errors %}
+                    <div class="text-danger small mt-1">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <button class="btn btn-primary" type="submit">Add Response</button>
+    </form>
+</section>
+
+<section class="content-panel mt-4">
+    <h2>Responses</h2>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>Participant</th>
+                    <th>Condition</th>
+                    <th>Decision</th>
+                    <th>Confidence</th>
+                    <th>Time</th>
+                    <th>Notes</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for response in responses %}
+                    <tr>
+                        <td>{{ response.participant_code }}</td>
+                        <td>{{ response.assigned_condition }}</td>
+                        <td>{{ response.decision }}</td>
+                        <td>{{ response.confidence_score }}</td>
+                        <td>{{ response.response_time_seconds }} sec</td>
+                        <td>{{ response.notes|default:"" }}</td>
+                        <td class="text-end">
+                            <form method="post" action="{% url 'experiments:delete_experiment_response' experiment.pk response.pk %}" onsubmit="return confirm('Delete this participant response?');">
+                                {% csrf_token %}
+                                <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr><td colspan="7" class="text-center text-muted py-4">No responses yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

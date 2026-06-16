@@ -1,0 +1,81 @@
+{% extends "analytics/base.html" %}
+
+{% block title %}Data Pipeline | Supply Chain Operations Platform{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h1>Data Pipeline</h1>
+        <p>Upload a dataset ZIP, extract CSV files, clean order data, and regenerate KPIs, reports, and RAG documents.</p>
+    </div>
+</div>
+
+<div class="two-column-layout">
+    <section class="content-panel">
+        <h2>Upload Dataset ZIP</h2>
+        <form method="post" enctype="multipart/form-data" class="vstack gap-3 mb-4">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="upload_zip">
+            <div>
+                <label class="form-label" for="{{ upload_form.zip_file.id_for_label }}">{{ upload_form.zip_file.label }}</label>
+                {{ upload_form.zip_file }}
+                {% for error in upload_form.zip_file.errors %}
+                    <div class="text-danger small mt-1">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <button class="btn btn-outline-primary" type="submit">Upload ZIP</button>
+        </form>
+
+        <h2>Run Processing</h2>
+        <p class="text-muted small">The largest ZIP in the Dataset folder will be used automatically.</p>
+        <form method="post" class="vstack gap-3">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="process_data">
+            <button class="btn btn-primary" type="submit">Run Data Processing</button>
+        </form>
+        {% if command_output %}
+            <pre class="command-output mt-4">{{ command_output }}</pre>
+        {% endif %}
+    </section>
+
+    <section class="content-panel">
+        <h2>Current Status</h2>
+        <div class="mb-4">
+            <h3 class="section-subtitle">Available ZIP Files</h3>
+            {% if dataset_files %}
+                <ul class="file-list">
+                    {% for file in dataset_files %}
+                        <li>
+                            <span>{{ file.name }}</span>
+                            <small>{{ file.size|filesizeformat }}</small>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-muted">No ZIP files uploaded yet.</p>
+            {% endif %}
+        </div>
+        {% if latest_import %}
+            <dl class="status-list">
+                <dt>File</dt>
+                <dd>{{ latest_import.file_name }}</dd>
+                <dt>Status</dt>
+                <dd><span class="status-pill">{{ latest_import.status }}</span></dd>
+                <dt>Rows loaded</dt>
+                <dd>{{ latest_import.rows_loaded }}</dd>
+                <dt>Extracted</dt>
+                <dd>{{ latest_import.extracted_at }}</dd>
+                <dt>Processed</dt>
+                <dd>{{ latest_import.processed_at|default:"Not processed" }}</dd>
+            </dl>
+        {% else %}
+            <p class="text-muted">No dataset import has been recorded yet.</p>
+        {% endif %}
+        <div class="path-list">
+            <div><strong>Cleaned CSV:</strong> {% if cleaned_exists %}available{% else %}not generated{% endif %}</div>
+            <div><strong>Outputs:</strong> {{ outputs_dir }}</div>
+            <div><strong>RAG documents:</strong> {{ rag_dir }}</div>
+        </div>
+    </section>
+</div>
+{% endblock %}

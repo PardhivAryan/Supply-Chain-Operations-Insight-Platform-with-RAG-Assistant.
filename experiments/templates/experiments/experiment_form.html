@@ -1,0 +1,31 @@
+{% extends "analytics/base.html" %}
+
+{% block title %}New Experiment | Supply Chain Operations Platform{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h1>New Experiment</h1>
+        <p>Define a research question and compare control versus treatment conditions.</p>
+    </div>
+</div>
+
+<section class="content-panel form-panel">
+    <form method="post" class="vstack gap-3">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% for error in field.errors %}
+                    <div class="text-danger small mt-1">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <div class="d-flex gap-2">
+            <button class="btn btn-primary" type="submit">Save Experiment</button>
+            <a class="btn btn-outline-secondary" href="{% url 'experiments:experiment_list' %}">Cancel</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

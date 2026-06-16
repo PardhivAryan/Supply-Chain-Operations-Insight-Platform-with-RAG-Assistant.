@@ -1,0 +1,50 @@
+{% extends "analytics/base.html" %}
+
+{% block title %}Experiments | Supply Chain Operations Platform{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h1>Research Experiments</h1>
+        <p>Track simple control/treatment studies for supply-chain decision-support research.</p>
+    </div>
+    <a class="btn btn-primary" href="{% url 'experiments:experiment_create' %}">New Experiment</a>
+</div>
+
+{% if experiments %}
+    <section class="content-panel">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th>Responses</th>
+                        <th>Created</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for experiment in experiments %}
+                        <tr>
+                            <td>{{ experiment.title }}</td>
+                            <td><span class="status-pill">{{ experiment.status }}</span></td>
+                            <td>{{ experiment.response_count }}</td>
+                            <td>{{ experiment.created_at }}</td>
+                            <td class="text-end">
+                                <a class="btn btn-sm btn-outline-primary" href="{% url 'experiments:experiment_detail' experiment.pk %}">Open</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% else %}
+    <section class="empty-state">
+        <h2>No experiments yet</h2>
+        <p>Create a study to record participant decisions, confidence scores, and response times.</p>
+        <a class="btn btn-primary" href="{% url 'experiments:experiment_create' %}">Create Experiment</a>
+    </section>
+{% endif %}
+{% endblock %}

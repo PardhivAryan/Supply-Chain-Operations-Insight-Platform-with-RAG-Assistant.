@@ -1,0 +1,55 @@
+{% extends "analytics/base.html" %}
+{% load static %}
+
+{% block title %}RAG Assistant | Supply Chain Operations Platform{% endblock %}
+
+{% block content %}
+{% if not has_rag_documents %}
+    <section class="empty-state">
+        <h2>No RAG documents found</h2>
+        <p>Process the dataset to generate local documents for retrieval.</p>
+        <a class="btn btn-primary" href="{% url 'analytics:upload' %}">Open Data Pipeline</a>
+    </section>
+{% else %}
+    <section class="chat-layout">
+        <div class="chat-panel">
+            <div class="chat-panel-header">
+                <div>
+                    <h2>Business Insight Assistant</h2>
+                    <p>Ask about KPIs, delivery risk, regions, products, shipping modes, recommendations, or generated reports.</p>
+                </div>
+            </div>
+            <div id="chatMessages" class="chat-messages">
+            </div>
+            <form id="chatForm" class="chat-form">
+                {% csrf_token %}
+                <textarea id="questionInput" class="form-control" rows="3" placeholder="Ask questions about the supply-chain insights..."></textarea>
+                <button class="btn btn-primary" type="submit">Ask</button>
+            </form>
+        </div>
+        <aside class="content-panel recent-chat-panel">
+            <div class="recent-chat-header">
+                <h2>Recent History</h2>
+                <form method="post" action="{% url 'analytics:clear_chat_history' %}">
+                    {% csrf_token %}
+                    <button class="btn btn-outline-danger btn-sm" type="submit">Clear History</button>
+                </form>
+            </div>
+            {% for message in recent_messages %}
+                <div class="recent-chat-item">
+                    <strong>{{ message.question }}</strong>
+                    <p>{{ message.answer|truncatechars:160 }}</p>
+                </div>
+            {% empty %}
+                <p class="text-muted">No chat history yet.</p>
+            {% endfor %}
+        </aside>
+    </section>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{% if has_rag_documents %}
+<script src="{% static 'analytics/js/chatbot.js' %}"></script>
+{% endif %}
+{% endblock %}

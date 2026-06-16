@@ -1,0 +1,6 @@
+Experiment Tracking Notes
+
+This local module lets a researcher define a control condition and a treatment condition,
+record participant decisions, confidence scores, response times, and notes, then export
+responses as CSV for later analysis. It is intended for lightweight supply-chain decision
+support studies, such as testing whether KPI dashboards change operational decisions.

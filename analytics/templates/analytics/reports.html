@@ -1,0 +1,83 @@
+{% extends "analytics/base.html" %}
+
+{% block title %}Reports | Supply Chain Operations Platform{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <div>
+        <h1>Business Report</h1>
+        <p>Professional summary of operational KPIs, delivery performance, revenue trends, risks, and recommendations.</p>
+    </div>
+    <a class="btn btn-outline-primary" href="{% url 'analytics:upload' %}">Regenerate Report</a>
+</div>
+
+{% if not has_report %}
+    <section class="empty-state">
+        <h2>No report generated yet</h2>
+        <p>Process the dataset to create the business report and RAG documents.</p>
+        <a class="btn btn-primary" href="{% url 'analytics:upload' %}">Open Data Pipeline</a>
+    </section>
+{% else %}
+    <section class="report-hero">
+        <div>
+            <span class="report-label">Supply Chain Analysis</span>
+            <h2>{{ structured_report.title }}</h2>
+            <p>Generated from the cleaned local operational dataset and designed for business review, interviews, and research documentation.</p>
+        </div>
+        <div class="report-meta">
+            <strong>{{ report.created_at|default:"Generated locally" }}</strong>
+        </div>
+    </section>
+
+    <section class="report-highlight-grid">
+        <article>
+            <span>Total Revenue</span>
+            <strong>{{ kpis.total_revenue }}</strong>
+        </article>
+        <article>
+            <span>Total Orders</span>
+            <strong>{{ kpis.total_orders }}</strong>
+        </article>
+        <article>
+            <span>Late Delivery Rate</span>
+            <strong>{{ kpis.late_delivery_rate }}</strong>
+        </article>
+        <article>
+            <span>Top Category</span>
+            <strong>{{ kpis.top_category }}</strong>
+        </article>
+    </section>
+
+    <section class="professional-report">
+        {% for section in structured_report.sections %}
+            <article class="report-section-card">
+                <div class="report-section-heading">
+                    <span>{{ forloop.counter|stringformat:"02d" }}</span>
+                    <h2>{{ section.heading }}</h2>
+                </div>
+
+                {% regroup section.items by type as grouped_items %}
+                {% for group in grouped_items %}
+                    {% if group.grouper == "paragraph" %}
+                        {% for item in group.list %}
+                            <p class="report-paragraph">{{ item.text }}</p>
+                        {% endfor %}
+                    {% elif group.grouper == "bullet" %}
+                        <ul class="report-list">
+                            {% for item in group.list %}
+                                <li>{{ item.text }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% elif group.grouper == "numbered" %}
+                        <ol class="report-list report-numbered-list">
+                            {% for item in group.list %}
+                                <li>{{ item.text }}</li>
+                            {% endfor %}
+                        </ol>
+                    {% endif %}
+                {% endfor %}
+            </article>
+        {% endfor %}
+    </section>
+{% endif %}
+{% endblock %}
