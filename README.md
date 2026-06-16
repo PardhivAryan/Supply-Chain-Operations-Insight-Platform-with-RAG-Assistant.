@@ -298,6 +298,20 @@ If you want cloud demo data, upload the dataset ZIP from the **Data Pipeline** p
 
 No Render deployment is started from this README. These steps are for you to run manually when ready.
 
+### Render Docker Runtime
+
+If you select **Docker** as the Render runtime, leave Render's **Docker Command** field empty. The `Dockerfile` already starts the app with migrations, demo-user seeding, static file collection, and Gunicorn bound to Render's `PORT` variable.
+
+Use these settings:
+
+```text
+Runtime: Docker
+Branch: main
+Root Directory: leave blank
+Dockerfile Path: ./Dockerfile
+Docker Command: leave blank
+```
+
 ## KPI Formulas
 
 - Revenue = existing sales/order total column when available, otherwise quantity x product price.
