@@ -365,20 +365,3 @@ Researchers can:
 
 This supports lightweight studies on whether operational dashboards or AI summaries improve supply-chain decision-making.
 
-## What To Say In An Interview
-
-"I built a local Django analytics platform that takes a raw supply-chain ZIP dataset, detects the primary operational CSV, cleans messy columns, generates KPIs, writes a business report, and exposes the results through dashboards and a local TF-IDF RAG assistant. I also added a research experiment module to evaluate decision-support workflows without storing raw records in the database."
-
-## Resume Bullet Points
-
-- Built a Django and SQLite supply-chain analytics platform that extracts raw ZIP datasets, cleans operational order records with pandas, and generates business KPIs.
-- Created interactive Chart.js dashboards for revenue trends, late delivery risk, category performance, region performance, and shipping-mode analysis.
-- Implemented a local scikit-learn TF-IDF RAG assistant over generated business reports without external APIs.
-- Designed an experiment-tracking module for control/treatment studies with CSV export for research analysis.
-- Produced beginner-friendly documentation and local management commands for repeatable data processing and smoke testing.
-
-## Next Steps
-
-- Docker has been added for local testing only.
-- Render and Neon readiness files are included, but actual deployment is manual.
-- Firebase production authentication can be added later if required.
